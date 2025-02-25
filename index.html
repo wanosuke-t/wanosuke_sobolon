@@ -25,10 +25,61 @@
   </head>
   <body>
     <!-- header -->
-    <header class="header"></header>
+    <header class="header">
+      <div class="header__inner">
+        <h1 class="header__logo">
+          <img src="./img/logo.png" alt="sobolon" width="240" height="44" />
+        </h1>
+        <nav class="header__nav">
+          <ul class="header__nav-list">
+            <li class="header__nav-item">
+              <a href="#" class="header__nav-link">Concept</a>
+            </li>
+            <li class="header__nav-item">
+              <a href="#" class="header__nav-link">Feature</a>
+            </li>
+            <li class="header__nav-item">
+              <a href="#" class="header__nav-link">Products</a>
+            </li>
+            <li class="header__nav-item">
+              <a href="#" class="header__nav-link">News</a>
+            </li>
+            <li class="header__nav-item">
+              <a href="#" class="header__nav-link">Contact</a>
+            </li>
+          </ul>
+        </nav>
+        <button class="header__drawer-button" aria-label="ボタン">
+          <span class="header__drawer-bar"></span>
+          <span class="header__drawer-bar"></span>
+          <span class="header__drawer-bar"></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- drawer -->
+    <div class="dwawer"></div>
 
     <!-- fv -->
-    <section class="fv"></section>
+    <section class="fv">
+      <div class="fv__inner">
+        <div class="fv__image">
+          <picture class="fv__picture">
+            <source media="(min-width: 768px)" srcset="./img/fv.jpg" />
+            <img
+              src="./img/sp/fv.jpg"
+              alt="“可愛い” で地球を守る！海洋マイクロプラスチックを素材としたハンドメイドアクセサリー「sobolon」"
+            />
+          </picture>
+        </div>
+        <div class="fv__content">
+          <h2 class="fv__lead">“可愛い” で地球を守る！</h2>
+          <p class="fv__discription">
+            海洋マイクロプラスチックを素材とした<br />ハンドメイドアクセサリー「sobolon」
+          </p>
+        </div>
+      </div>
+    </section>
 
     <!-- concept -->
     <section class="concept"></section>

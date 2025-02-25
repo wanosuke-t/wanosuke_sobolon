@@ -2,6 +2,7 @@
 
 $breakpoints: (
   sp: "not screen and (min-width: 768px)",
+  tb: "screen and (min-width: 768px) and (max-width: 1024px)",
   pc: "screen and (min-width: 768px)",
 ) !default;
 
@@ -25,7 +26,7 @@ $color-attention: #e7728e;
 $color-price: #989898;
 $color-border: #e0e0e0;
 
-$width-inner-pc: 345px;
+$width-inner-sp: 345px;
 $width-inner-pc: 1200px;
 
 body {
@@ -33,4 +34,149 @@ body {
   font-size: $font-size-base;
   line-height: $line-height-base;
   color: $color-text;
+  background-color: $color-bg;
+}
+
+// header
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: $color-bg;
+  z-index: 100;
+}
+
+.header__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+
+  @include mq(pc) {
+    padding: 0 40px;
+    max-width: calc($width-inner-pc + 40px * 2);
+    margin: 0 auto;
+  }
+}
+
+.header__logo {
+  padding: 19px 0;
+  line-height: 0;
+
+  @include mq(pc) {
+    padding: 24px 0;
+  }
+
+  img {
+    width: 120px;
+  }
+}
+
+.header__nav {
+  display: none;
+
+  @include mq(pc) {
+    display: block;
+  }
+}
+
+.header__nav-list {
+  display: flex;
+  align-items: center;
+  gap: 46px;
+}
+
+.header__nav-item {
+}
+
+.header__nav-link {
+  display: inline-block;
+  height: 100%;
+  font-weight: 300;
+  transition: color 0.3s linear;
+
+  &:hover {
+    color: $color-main;
+  }
+}
+
+.header__drawer-button {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  @include mq(pc) {
+    display: none;
+  }
+}
+
+.header__drawer-bar {
+  display: block;
+  width: 30px;
+  height: 2px;
+  background: $color-main;
+}
+
+// fv
+.fv {
+  padding-top: 70px;
+}
+
+.fv__inner {
+  padding: 0 15px;
+
+  @include mq(pc) {
+    padding: 0 40px;
+    max-width: calc($width-inner-pc + 40px * 2);
+    margin: 0 auto;
+    position: relative;
+  }
+}
+
+.fv__image {
+  @include mq(pc) {
+    text-align: right;
+  }
+
+  img {
+    width: 100%;
+
+    @include mq(pc) {
+      width: calc(990px / $width-inner-pc * 100%);
+    }
+  }
+}
+
+.fv__content {
+  padding-top: 30px;
+
+  @include mq(pc) {
+    position: absolute;
+    z-index: 20;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 40px;
+    background-color: $color-bg;
+    padding: 80px 40px;
+  }
+
+  @include mq(tb) {
+    padding: 50px 16px;
+  }
+}
+
+.fv__lead {
+  font-size: 26px;
+  font-weight: 600;
+
+  @include mq(pc) {
+    font-size: 26px;
+    font-weight: 600;
+  }
+}
+
+.fv__discription {
+  margin-top: 16px;
+  font-weight: 300;
 }
