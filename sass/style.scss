@@ -39,6 +39,12 @@ body {
 }
 
 // 共有
+.hide-on-pc{
+  @include mq(pc) {
+    display: none;
+  }
+}
+
 .inner {
   padding: 0 15px;
 
@@ -365,4 +371,59 @@ body {
   font-weight: 600;
   text-align: center;
   padding: 26px 0;
+}
+
+// question
+.question {
+  margin-top: 48px;
+  margin-bottom: 48px;
+  padding-top: 180px;
+  padding-bottom: 50px;
+  background: url("../img/sp/question-bg.jpg") top center / cover no-repeat;
+  position: relative;
+  z-index: 1;
+
+  @include mq(pc) {
+    margin-top: 80px;
+    margin-bottom: 80px;
+    padding-top: 123px;
+    padding-bottom: 122px;
+    background: url("../img/question-bg.jpg") center center / cover no-repeat;
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.12);
+    z-index: -1;
+  }
+}
+
+.question__inner {
+}
+
+.question__lead {
+  color: $color-bg;
+  font-size: 20px;
+  font-weight: 600;
+
+  @include mq(pc) {
+    font-size: 22px;
+  }
+}
+
+.question__description {
+  margin-top: 24px;
+  color: $color-bg;
+  font-size: 14px;
+  font-weight: 600;
+
+  @include mq(pc) {
+    font-size: 16px;
+  }
 }
