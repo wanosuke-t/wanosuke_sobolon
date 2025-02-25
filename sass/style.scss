@@ -29,12 +29,52 @@ $color-border: #e0e0e0;
 $width-inner-sp: 345px;
 $width-inner-pc: 1200px;
 
+// base
 body {
   font-family: $font-family-ja;
   font-size: $font-size-base;
   line-height: $line-height-base;
   color: $color-text;
   background-color: $color-bg;
+}
+
+// 共有
+.inner {
+  padding: 0 15px;
+
+  @include mq(pc) {
+    padding: 0 40px;
+    max-width: calc($width-inner-pc + 40px * 2);
+    margin: 0 auto;
+  }
+}
+
+.title {
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+  position: relative;
+
+  @include mq(pc) {
+    font-size: 40px;
+  }
+
+  &::after {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 60px;
+    height: 1px;
+    left: 50%;
+    bottom: -28px;
+    transform: translateX(-50%);
+    background-color: $color-main;
+
+    @include mq(pc) {
+      bottom: -24px;
+    }
+  }
 }
 
 // header
@@ -51,13 +91,6 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 15px;
-
-  @include mq(pc) {
-    padding: 0 40px;
-    max-width: calc($width-inner-pc + 40px * 2);
-    margin: 0 auto;
-  }
 }
 
 .header__logo {
@@ -121,26 +154,28 @@ body {
 // fv
 .fv {
   padding-top: 70px;
+  padding-bottom: 48px;
+
+  @include mq(pc) {
+    padding-bottom: 80px;
+  }
 }
 
 .fv__inner {
-  padding: 0 15px;
-
   @include mq(pc) {
-    padding: 0 40px;
-    max-width: calc($width-inner-pc + 40px * 2);
-    margin: 0 auto;
     position: relative;
   }
 }
 
 .fv__image {
+  text-align: center;
+
   @include mq(pc) {
     text-align: right;
   }
 
   img {
-    width: 100%;
+    width: $width-inner-sp;
 
     @include mq(pc) {
       width: calc(990px / $width-inner-pc * 100%);
@@ -176,7 +211,158 @@ body {
   }
 }
 
-.fv__discription {
+.fv__description {
   margin-top: 16px;
   font-weight: 300;
+}
+
+//concept
+.concept {
+  padding-top: 48px;
+  padding-bottom: 48px;
+
+  @include mq(pc) {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+}
+
+.concept__inner {
+}
+
+.concept__title {
+  // font-size: 30px;
+  // font-weight: 600;
+  // line-height: 1;
+  // text-align: center;
+  // position: relative;
+
+  // @include mq(pc) {
+  //   font-size: 40px;
+  // }
+
+  // &::after {
+  //   position: absolute;
+  //   content: "";
+  //   display: block;
+  //   width: 60px;
+  //   height: 1px;
+  //   left: 50%;
+  //   bottom: -28px;
+  //   transform: translateX(-50%);
+  //   background-color: $color-main;
+
+  //   @include mq(pc) {
+  //     bottom: -24px;
+  //   }
+  // }
+}
+
+.concept__wrapper {
+  margin-top: 74px;
+
+  @include mq(pc) {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    gap: 24px;
+    gap: clamp(
+      24px,
+      calc((80 - 24) / (1280 - 768) * (100vw - 768px) + 24px),
+      80px
+    );
+  }
+}
+
+.concept__image {
+  text-align: center;
+
+  @include mq(pc) {
+    flex: 0 0 calc(600px / $width-inner-pc * 100%);
+  }
+
+  img {
+    width: $width-inner-sp;
+
+    @include mq(pc) {
+      width: 100%;
+    }
+  }
+}
+
+.concept__content {
+  margin-top: 30px;
+
+  @include mq(pc) {
+    flex-grow: 1;
+    margin-top: 0;
+  }
+}
+
+.concept__lead {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.concept__description {
+  margin-top: 22px;
+  font-weight: 300;
+
+  @include mq(pc) {
+    margin-top: 40px;
+    font-size: 16px;
+  }
+}
+
+//feature
+.feature {
+  padding-top: 48px;
+  padding-bottom: 48px;
+
+  @include mq(pc) {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+}
+
+.feature__inner {
+}
+
+.feature__title {
+}
+
+.feature__list {
+  margin-top: 74px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+
+  @include mq(pc) {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 30px;
+  }
+}
+
+.feature__item {
+  box-shadow: 3px 3px 15px 0px rgba(96, 96, 96, 0.16);
+  background: $color-bg;
+  max-width: 345px;
+}
+
+.feature__image {
+  img {
+    width: 100%;
+
+    @include mq(pc) {
+      width: 340px;
+    }
+  }
+}
+
+.feature__description {
+  font-weight: 600;
+  text-align: center;
+  padding: 26px 0;
 }
