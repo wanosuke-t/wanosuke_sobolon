@@ -1,0 +1,36 @@
+@use "sass:map";
+
+$breakpoints: (
+  sp: "not screen and (min-width: 768px)",
+  pc: "screen and (min-width: 768px)",
+) !default;
+
+@mixin mq($breakpoint: pc) {
+  @media #{map.get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+$font-family-ja: "Noto Serif JP", serif;
+
+$font-size-base: 16px;
+$font-size-sub: 14px;
+$line-height-base: 1.7;
+
+$color-main: #3ea1d1;
+$color-bg: var(--ffffff, #fff);
+$color-text: var(--333333, #333);
+$color-text-sub: #888;
+$color-attention: #e7728e;
+$color-price: #989898;
+$color-border: #e0e0e0;
+
+$width-inner-pc: 345px;
+$width-inner-pc: 1200px;
+
+body {
+  font-family: $font-family-ja;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: $color-text;
+}
