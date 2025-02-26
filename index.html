@@ -75,7 +75,9 @@
           </picture>
         </div>
         <div class="fv__content">
-          <h2 class="fv__lead">“可愛い” で地球を守る！</h2>
+          <h2 class="fv__lead">
+            “可愛い” で<br class="hide-on-sp" />地球を守る！
+          </h2>
           <p class="fv__description">
             海洋マイクロプラスチックを素材とした<br />ハンドメイドアクセサリー「sobolon」
           </p>
@@ -293,7 +295,9 @@
           </div>
           <div class="motto__content">
             <h2 class="motto__lead">
-              合言葉は、<br />「 “可愛い” で 地球を<span class="inline-block">守る！」</span>
+              合言葉は、<br />「 “可愛い” で 地球を<span class="inline-block"
+                >守る！」</span
+              >
             </h2>
             <p class="motto__description">
               深刻化している環境問題に対して、否定や制限、禁止といった強制的な方法ではなく、明るく幸せな未来を目指して、「可愛い」「楽しい」の力を信じて、愛につながる選択を世の中に増やしていきます。
@@ -304,10 +308,145 @@
     </section>
 
     <!-- contact -->
-    <section class="contact"></section>
+    <section class="contact">
+      <div class="contact__inner inner">
+        <h2 class="contact__title title">Contact</h2>
+        <p class="contact__description">
+          <span class="color-attention">＊</span>は入力必須項目です
+        </p>
+
+        <form class="form">
+          <div class="form__field">
+            <label for="your-name" class="form__label"
+              ><span class="form__label-text">お名前</span
+              ><span class="form__label-mark">＊</span></label
+            >
+            <input
+              class="form__input form__text"
+              type="text"
+              name="your-name"
+              id="your-name"
+              placeholder=""
+            />
+          </div>
+          <div class="form__field">
+            <label for="your-name" class="form__label"
+              ><span class="form__label-text">メールアドレス</span
+              ><span class="form__label-mark">＊</span></label
+            >
+            <input
+              class="form__input form__text"
+              type="email"
+              name="your-email"
+              id="your-email"
+              placeholder=""
+            />
+          </div>
+          <div class="form__field">
+            <label for="your-name" class="form__label"
+              ><span class="form__label-text">法人/個人の選択</span
+              ><span class="form__label-mark">＊</span></label
+            >
+            <div class="form__radios">
+              <label class="form__radio form-radio">
+                <input
+                  class="form-radio__input"
+                  type="radio"
+                  name="your-name"
+                />
+                <span class="form-radio__text">法人</span>
+              </label>
+              <label class="form__radio form-radio">
+                <input
+                  class="form-radio__input"
+                  type="radio"
+                  name="your-name"
+                />
+                <span class="form-radio__text">個人</span>
+              </label>
+            </div>
+          </div>
+          <div class="form__field">
+            <label for="your-name" class="form__label"
+              ><span class="form__label-text">お問い合わせ内容</span
+              ><span class="form__label-mark">＊</span></label
+            >
+            <div class="form__item">
+              <textarea
+                class="form__textarea"
+                name="your-message"
+                id="your-message"
+                placeholder=""
+              ></textarea>
+            </div>
+          </div>
+          <div class="form__privacy">
+            <label class="form__checkbox">
+              <input
+                class="form__checkbox-input"
+                type="checkbox"
+                name="your-privacy"
+                id="your-privacy"
+              />
+              <span class="form__checkboxtext"
+                ><a target="_blank" href="">プライバシーポリシー</a
+                >に同意します。</span
+              >
+            </label>
+          </div>
+          <div class="form__button button">
+            <input type="submit" value="送信" />
+          </div>
+        </form>
+      </div>
+    </section>
 
     <!-- footer -->
-    <footer class="footer"></footer>
+    <footer class="footer">
+      <div class="footer__inner">
+        <div class="footer__logo">
+          <img src="./img/logo.png" alt="" width="240" height="44" />
+        </div>
+        <ul class="footer__list">
+          <li class="footer__item">
+            <a href="#" class="footer__link">プライバシーポリシー</a>
+          </li>
+          <li class="footer__item">
+            <a href="#" class="footer__link">特定商取引法に基づく表記</a>
+          </li>
+        </ul>
+        <ul class="footer__icons">
+          <li class="footer__icon">
+            <a href="#" class="footer__icon-link" aria-label="Twitter"
+              ><img
+                src="./img/icon-twitter.svg"
+                alt=""
+                width="21"
+                height="22"
+              />
+            </a>
+          </li>
+          <li class="footer__icon">
+            <a href="#" class="footer__icon-link" aria-label="Instagram"
+              ><img
+                src="./img/icon-instagram.svg"
+                alt=""
+                width="18"
+                height="23"
+              />
+            </a>
+          </li>
+          <li class="footer__icon">
+            <a href="#" class="footer__icon-link" aria-label="LINE"
+              ><img src="./img/icon-line.svg" alt="" width="18" height="20" />
+            </a>
+          </li>
+        </ul>
+        <div class="footer__copyright">
+          <small>© 2020 sobolon All rights reserved</small>
+        </div>
+      </div>
+    </footer>
 
     <!-- js -->
     <script src="./js/script.js" defer></script>
