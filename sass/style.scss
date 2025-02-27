@@ -51,18 +51,30 @@ body {
   }
 }
 
+.color-attention {
+  color: $color-attention;
+}
+
 .inline-block {
   display: inline-block;
   font-weight: inherit;
 }
 
+.change-opacity-on-hover {
+  a {
+    transition: opacity 0.3s linear;
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+}
+
 .section-padding-y {
-  padding-top: 48px;
-  padding-bottom: 48px;
+  padding-top: 96px;
 
   @include mq(pc) {
-    padding-top: 80px;
-    padding-bottom: 80px;
+    padding-top: 160px;
   }
 }
 
@@ -122,7 +134,13 @@ body {
     background: $color-bg;
     display: inline-block;
     width: 158px;
-    padding: 12px 0;
+    padding: calc(12px - 1px) 0;
+    transition: color 0.3s linear, background 0.3s linear;
+
+    &:hover {
+      color: $color-bg;
+      background: $color-main;
+    }
   }
 }
 
@@ -166,7 +184,7 @@ body {
 .header__nav-list {
   display: flex;
   align-items: center;
-  gap: 46px;
+  gap: 46.5px;
 }
 
 .header__nav-item {
@@ -188,6 +206,22 @@ body {
   flex-direction: column;
   gap: 6px;
 
+  &.is-checked {
+    .header__drawer-bar {
+      &:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+
+      &:nth-child(2) {
+        opacity: 0;
+      }
+
+      &:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+    }
+  }
+
   @include mq(pc) {
     display: none;
   }
@@ -198,11 +232,52 @@ body {
   width: 30px;
   height: 2px;
   background: $color-main;
+  transition: transform 0.3s linear, opacity 0.3s linear;
+}
+
+// drawer
+.drawer {
+  position: fixed;
+  top: 60px;
+  right: 0;
+  width: 270px;
+  height: 100vh;
+  background: $color-main;
+  z-index: 90;
+  transform: translateX(100%);
+  transition: transform 0.3s linear;
+
+  &.is-checked {
+    transform: translateX(0);
+  }
+
+  @include mq(pc) {
+    display: none;
+  }
+}
+
+.drawer__list {
+  margin-top: 40px;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.drawer__item {
+}
+
+.drawer__link {
+  padding: 0 15px;
+  color: $color-bg;
+  font-size: 18px;
+  font-weight: 300;
 }
 
 // fv
 .fv {
   padding-top: 60px;
+  margin-bottom: -2px;
 
   @include mq(pc) {
     padding-top: 70px;
@@ -306,7 +381,7 @@ body {
 }
 
 .concept__content {
-  margin-top: 30px;
+  margin-top: 34px;
 
   @include mq(pc) {
     flex-grow: 1;
@@ -355,7 +430,6 @@ body {
 
   @include mq(pc) {
     margin-top: 89px;
-
     flex-direction: row;
     justify-content: space-between;
     gap: 30px;
@@ -381,24 +455,22 @@ body {
 .feature__description {
   font-weight: 600;
   text-align: center;
-  padding: 26px 0;
+  padding: 26px 0 25.5px;
 }
 
 // question
 .question {
-  margin-top: 48px;
-  margin-bottom: 48px;
-  padding-top: 180px;
+  margin-top: 96px;
+  padding-top: 182px;
   padding-bottom: 50px;
   background: url("../img/sp/question-bg.jpg") top center / cover no-repeat;
   position: relative;
   z-index: 1;
 
   @include mq(pc) {
-    margin-top: 80px;
-    margin-bottom: 80px;
+    margin-top: 160px;
     padding-top: 123px;
-    padding-bottom: 122px;
+    padding-bottom: 120px;
     background: url("../img/question-bg.jpg") center center / cover no-repeat;
   }
 
@@ -498,13 +570,14 @@ body {
 }
 
 .products__price {
-  margin-top: 10px;
+  margin-top: 11px;
   color: $color-price;
   font-size: 14px;
   font-weight: 300;
 }
 
 .products__button {
+  margin-top: 41px;
 }
 
 // news
@@ -525,7 +598,7 @@ body {
   gap: 28px;
 
   @include mq(pc) {
-    margin-top: 89px;
+    margin-top: 92px;
     max-width: 1040px;
     margin-left: auto;
     margin-right: auto;
@@ -535,7 +608,7 @@ body {
 
 .news__item {
   max-width: 345px;
-  padding-bottom: 28px;
+  padding-bottom: 27px;
   border-bottom: 1px solid $color-border;
 
   @include mq(pc) {
@@ -545,6 +618,12 @@ body {
 }
 
 .news__link {
+  &:hover {
+    & .news__image {
+      transform: scale(1.05);
+    }
+  }
+
   @include mq(pc) {
     display: flex;
     align-items: start;
@@ -557,6 +636,7 @@ body {
 
 .news__image {
   text-align: center;
+  transition: transform 0.3s linear;
 
   img {
     width: 345px;
@@ -606,6 +686,10 @@ body {
 
 .news__button {
   margin-top: 42px;
+
+  @include mq(pc) {
+    margin-top: 44px;
+  }
 }
 
 // motto
@@ -645,7 +729,7 @@ body {
 }
 
 .motto__content {
-  margin-top: 32px;
+  margin-top: 33px;
 
   @include mq(pc) {
     margin-top: 0;
@@ -658,6 +742,7 @@ body {
   font-weight: 600;
 
   @include mq(pc) {
+    margin-top: 2px;
     font-size: 28px;
   }
 
@@ -679,14 +764,15 @@ body {
 
 // contact
 .contact {
-  background: url("../img/contact-bg.jpg") center center / cover no-repeat;
-  margin-top: 48px;
+  background: url(../img/contact-bg.jpg) top center / cover no-repeat;
+  margin-top: 96px;
   padding-top: 56px;
   padding-bottom: 56px;
 
   @include mq(pc) {
-    margin-top: 80px;
+    margin-top: 160px;
     padding-top: 80px;
+    padding-bottom: 80px;
   }
 }
 
@@ -704,7 +790,7 @@ body {
   font-weight: 600;
 
   @include mq(pc) {
-    margin-top: 88px;
+    margin-top: 90px;
   }
 }
 
@@ -737,13 +823,14 @@ body {
   justify-content: center;
   align-items: center;
   gap: 4px;
-  width: 158px;
+  padding: 0 16px;
   height: 32px;
   opacity: 0.7;
   background: $color-main;
 
   @include mq(pc) {
     flex: 0 0 180px;
+    padding: 0;
     height: 40px;
     clip-path: polygon(0% 0%, 97% 0%, 100% 50%, 97% 100%, 0% 100%);
   }
@@ -882,7 +969,7 @@ body {
     content: "";
     display: inline-block;
     width: 20px;
-    height: 14px;
+    height: 20px;
     top: 50%;
     transform: translateY(-50%);
     left: 1px;
@@ -927,6 +1014,7 @@ body {
   padding-bottom: 10px;
 
   @include mq(pc) {
+    padding-top: 39px;
     padding-bottom: 14px;
   }
 }
@@ -972,14 +1060,14 @@ body {
 }
 
 .footer__icons {
-  margin-top: 18px;
+  margin-top: 17px;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 40px;
 
   @include mq(pc) {
-    margin-top: 20px;
+    margin-top: 19px;
   }
 }
 
