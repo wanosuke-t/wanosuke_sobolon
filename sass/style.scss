@@ -79,12 +79,12 @@ body {
 }
 
 .inner {
-  padding: 0 15px;
+  padding-inline: 15px;
 
   @include mq(pc) {
-    padding: 0 40px;
+    padding-inline: 40px;
     max-width: calc($width-inner-pc + 40px * 2);
-    margin: 0 auto;
+    margin-inline: auto;
   }
 }
 
@@ -162,7 +162,6 @@ body {
 
 .header__logo {
   padding: 19px 0;
-  line-height: 0;
 
   @include mq(pc) {
     padding: 24px 0;
@@ -170,14 +169,25 @@ body {
 
   img {
     width: 120px;
+    display: block;
   }
 }
 
 .header__nav {
-  display: none;
+  @include mq(sp) {
+    position: fixed;
+    top: 60px;
+    right: 0;
+    width: 270px;
+    height: 100vh;
+    background: $color-main;
+    z-index: 90;
+    transform: translateX(100%);
+    transition: transform 0.3s linear;
 
-  @include mq(pc) {
-    display: block;
+    &.is-checked {
+      transform: translateX(0);
+    }
   }
 }
 
@@ -185,6 +195,13 @@ body {
   display: flex;
   align-items: center;
   gap: 46.5px;
+
+  @include mq(sp) {
+    margin-top: 40px;
+    align-items: end;
+    flex-direction: column;
+    gap: calc(32px - 8px * 2);
+  }
 }
 
 .header__nav-item {
@@ -196,8 +213,17 @@ body {
   font-weight: 300;
   transition: color 0.3s linear;
 
-  &:hover {
-    color: $color-main;
+  @include mq(pc) {
+    &:hover {
+      color: $color-main;
+    }
+  }
+
+  @include mq(sp) {
+    padding: 8px 15px;
+    color: $color-bg;
+    font-size: 18px;
+    font-weight: 300;
   }
 }
 
@@ -233,45 +259,6 @@ body {
   height: 2px;
   background: $color-main;
   transition: transform 0.3s linear, opacity 0.3s linear;
-}
-
-// drawer
-.drawer {
-  position: fixed;
-  top: 60px;
-  right: 0;
-  width: 270px;
-  height: 100vh;
-  background: $color-main;
-  z-index: 90;
-  transform: translateX(100%);
-  transition: transform 0.3s linear;
-
-  &.is-checked {
-    transform: translateX(0);
-  }
-
-  @include mq(pc) {
-    display: none;
-  }
-}
-
-.drawer__list {
-  margin-top: 40px;
-  text-align: right;
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-}
-
-.drawer__item {
-}
-
-.drawer__link {
-  padding: 0 15px;
-  color: $color-bg;
-  font-size: 18px;
-  font-weight: 300;
 }
 
 // fv
@@ -823,7 +810,7 @@ body {
   justify-content: center;
   align-items: center;
   gap: 4px;
-  padding: 0 16px;
+  padding-inline: 16px;
   height: 32px;
   opacity: 0.7;
   background: $color-main;

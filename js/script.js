@@ -2,13 +2,11 @@
 const drawerIcon = document.getElementById("js-drawer-button");
 const drawerContent = document.getElementById("js-drawer-content");
 
-if (drawerIcon && drawerContent) {
-  drawerIcon.addEventListener("click", function (e) {
-    e.preventDefault();
-    this.classList.toggle("is-checked");
-    drawerContent.classList.toggle("is-checked");
-  });
-}
+drawerIcon.addEventListener("click", function (e) {
+  e.preventDefault();
+  this.classList.toggle("is-checked");
+  drawerContent.classList.toggle("is-checked");
+});
 
 // スムーススクロール
 document
