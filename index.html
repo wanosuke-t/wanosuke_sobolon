@@ -316,68 +316,74 @@
         </p>
 
         <form class="form">
-          <div class="form__field">
-            <label for="your-name" class="form__label"
-              ><span class="form__label-text">お名前</span
-              ><span class="form__label-mark">＊</span></label
-            >
-            <input
-              class="form__input form__text"
-              type="text"
-              name="your-name"
-              id="your-name"
-              placeholder=""
-            />
-          </div>
-          <div class="form__field">
-            <label for="your-name" class="form__label"
-              ><span class="form__label-text">メールアドレス</span
-              ><span class="form__label-mark">＊</span></label
-            >
-            <input
-              class="form__input form__text"
-              type="email"
-              name="your-email"
-              id="your-email"
-              placeholder=""
-            />
-          </div>
-          <div class="form__field">
-            <label for="your-name" class="form__label"
-              ><span class="form__label-text">法人/個人の選択</span
-              ><span class="form__label-mark">＊</span></label
-            >
-            <div class="form__radios">
-              <label class="form__radio form-radio">
+          <div class="form__fields">
+            <div class="form__field">
+              <label for="your-name" class="form__label"
+                ><span class="form__label-text">お名前</span
+                ><span class="form__label-mark">＊</span></label
+              >
+              <div class="form__item">
                 <input
-                  class="form-radio__input"
-                  type="radio"
+                  class="form__text-input"
+                  type="text"
                   name="your-name"
+                  id="your-name"
+                  placeholder=""
                 />
-                <span class="form-radio__text">法人</span>
-              </label>
-              <label class="form__radio form-radio">
-                <input
-                  class="form-radio__input"
-                  type="radio"
-                  name="your-name"
-                />
-                <span class="form-radio__text">個人</span>
-              </label>
+              </div>
             </div>
-          </div>
-          <div class="form__field">
-            <label for="your-name" class="form__label"
-              ><span class="form__label-text">お問い合わせ内容</span
-              ><span class="form__label-mark">＊</span></label
-            >
-            <div class="form__item">
-              <textarea
-                class="form__textarea"
-                name="your-message"
-                id="your-message"
-                placeholder=""
-              ></textarea>
+            <div class="form__field">
+              <label for="your-name" class="form__label"
+                ><span class="form__label-text">メールアドレス</span
+                ><span class="form__label-mark">＊</span></label
+              >
+              <div class="form__item">
+                <input
+                  class="form__text-input"
+                  type="email"
+                  name="your-email"
+                  id="your-email"
+                  placeholder=""
+                />
+              </div>
+            </div>
+            <div class="form__field">
+              <label for="your-name" class="form__label"
+                ><span class="form__label-text">法人/個人の選択</span
+                ><span class="form__label-mark">＊</span></label
+              >
+              <div class="form__item">
+                <div class="form__radios">
+                  <label class="form__radio">
+                    <input
+                      class="form__radio-input"
+                      type="radio"
+                      name="your-name"
+                    /><span class="form__radio-text">法人</span></label
+                  >
+                  <label class="form__radio">
+                    <input
+                      class="form__radio-input"
+                      type="radio"
+                      name="your-name"
+                    /><span class="form__radio-text">個人</span></label
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="form__field">
+              <label for="your-name" class="form__label"
+                ><span class="form__label-text">お問い合わせ内容</span
+                ><span class="form__label-mark">＊</span></label
+              >
+              <div class="form__item">
+                <textarea
+                  class="form__textarea"
+                  name="your-message"
+                  id="your-message"
+                  placeholder=""
+                ></textarea>
+              </div>
             </div>
           </div>
           <div class="form__privacy">
@@ -388,7 +394,7 @@
                 name="your-privacy"
                 id="your-privacy"
               />
-              <span class="form__checkboxtext"
+              <span class="form__checkbox-text"
                 ><a target="_blank" href="">プライバシーポリシー</a
                 >に同意します。</span
               >
