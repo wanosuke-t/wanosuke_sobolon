@@ -751,13 +751,19 @@ body {
 
 // contact
 .contact {
+  padding-top: 96px;
+
+  @include mq(pc) {
+    padding-top: 160px;
+  }
+}
+
+.contact__background {
   background: url(../img/contact-bg.jpg) top center / cover no-repeat;
-  margin-top: 96px;
   padding-top: 56px;
   padding-bottom: 56px;
 
   @include mq(pc) {
-    margin-top: 160px;
     padding-top: 80px;
     padding-bottom: 80px;
   }

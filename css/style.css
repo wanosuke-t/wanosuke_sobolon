@@ -764,14 +764,21 @@ body {
 }
 
 .contact {
+  padding-top: 96px;
+}
+@media screen and (min-width: 768px) {
+  .contact {
+    padding-top: 160px;
+  }
+}
+
+.contact__background {
   background: url(../img/contact-bg.jpg) top center/cover no-repeat;
-  margin-top: 96px;
   padding-top: 56px;
   padding-bottom: 56px;
 }
 @media screen and (min-width: 768px) {
-  .contact {
-    margin-top: 160px;
+  .contact__background {
     padding-top: 80px;
     padding-bottom: 80px;
   }
