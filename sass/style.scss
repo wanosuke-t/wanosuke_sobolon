@@ -135,7 +135,7 @@ body {
     display: inline-block;
     width: 158px;
     padding: calc(12px - 1px) 0;
-    transition: color 0.3s linear, background 0.3s linear;
+    transition: color 0.3s linear, background-color 0.3s linear;
 
     &:hover {
       color: $color-bg;
@@ -268,6 +268,7 @@ body {
 
   @include mq(pc) {
     padding-top: 70px;
+    margin-bottom: 0;
   }
 }
 
@@ -285,7 +286,7 @@ body {
   }
 
   img {
-    width: $width-inner-sp;
+    width: 100%;
 
     @include mq(pc) {
       width: calc(990px / $width-inner-pc * 100%);
@@ -359,7 +360,7 @@ body {
   }
 
   img {
-    width: $width-inner-sp;
+    width: 100%;
 
     @include mq(pc) {
       width: 100%;
@@ -426,12 +427,11 @@ body {
 .feature__item {
   box-shadow: 3px 3px 15px 0px rgba(96, 96, 96, 0.16);
   background: $color-bg;
-  max-width: 345px;
 }
 
 .feature__image {
   img {
-    width: 100%;
+    width: 345px;
 
     @include mq(pc) {
       width: 340px;
@@ -452,7 +452,6 @@ body {
   padding-bottom: 50px;
   background: url("../img/sp/question-bg.jpg") top center / cover no-repeat;
   position: relative;
-  z-index: 1;
 
   @include mq(pc) {
     margin-top: 160px;
@@ -470,11 +469,13 @@ body {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.12);
-    z-index: -1;
+    z-index: 1;
   }
 }
 
 .question__inner {
+  position: relative;
+  z-index: 2;
 }
 
 .question__lead {
@@ -537,16 +538,19 @@ body {
 .products__link {
   &:hover {
     & .products__image {
-      transform: scale(1.05);
+      img {
+        transform: scale(1.05);
+      }
     }
   }
 }
 
 .products__image {
-  transition: transform 0.3s linear;
+  overflow: hidden;
 
   img {
-    width: 263px;
+    width: 100%;
+    transition: transform 0.3s linear;
   }
 }
 
@@ -594,7 +598,6 @@ body {
 }
 
 .news__item {
-  max-width: 345px;
   padding-bottom: 27px;
   border-bottom: 1px solid $color-border;
 
@@ -607,26 +610,30 @@ body {
 .news__link {
   &:hover {
     & .news__image {
-      transform: scale(1.05);
+      img {
+        transform: scale(1.05);
+      }
     }
   }
 
   @include mq(pc) {
     display: flex;
-    align-items: start;
+    align-items: flex-start;
     gap: 40px;
   }
 }
 
-.news__flex-order {
-}
-
 .news__image {
   text-align: center;
-  transition: transform 0.3s linear;
+  overflow: hidden;
+
+  @include mq(pc) {
+    flex-shrink: 0;
+  }
 
   img {
-    width: 345px;
+    width: 100%;
+    transition: transform 0.3s linear;
 
     @include mq(pc) {
       max-width: 260px;
@@ -707,7 +714,7 @@ body {
   }
 
   img {
-    width: 345px;
+    width: 100%;
 
     @include mq(pc) {
       width: 600px;
@@ -778,9 +785,9 @@ body {
 
 .contact__description {
   margin-top: 74px;
-  text-align: center;
   font-size: 14px;
   font-weight: 600;
+  text-align: center;
 
   @include mq(pc) {
     margin-top: 90px;
@@ -795,6 +802,13 @@ body {
     max-width: 510px;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  input,
+  textarea {
+    -webkit-appearance: none; /* デフォルトのスタイルをリセット */
+    appearance: none;
+    border-radius: 0;
   }
 }
 
@@ -866,9 +880,7 @@ body {
   padding: 6.5px;
 
   &:focus {
-    border: 2px solid $color-main;
-    outline: none;
-    padding: 4.5px;
+    outline: 1px auto $color-main;
   }
 }
 
@@ -891,7 +903,7 @@ body {
   overflow: hidden;
 
   &:focus + .form__radio-text {
-    border: 2px solid $color-main;
+    outline: 1px auto $color-main;
   }
 
   &:checked + .form__radio-text {
@@ -900,9 +912,6 @@ body {
     border: 1px solid $color-bg;
   }
 
-  &:focus:checked + .form__radio-text {
-    border: 2px solid $color-bg;
-  }
 }
 
 .form__radio-text {
@@ -922,10 +931,10 @@ body {
   padding: 6.5px;
   border: 0;
   box-shadow: 5px 6px 16px 0px rgba(96, 96, 96, 0.16);
+  resize: vertical;
 
   &:focus {
-    border: 2px solid $color-main;
-    outline: none;
+    outline: 1px auto $color-main;
   }
 
   @include mq(pc) {
@@ -954,7 +963,8 @@ body {
   overflow: hidden;
 
   &:focus + .form__checkbox-text::before {
-    border: 2px solid $color-main;
+    // border: 2px solid $color-main;
+    outline: 1px auto $color-main;
   }
 
   &:checked + .form__checkbox-text::after {
@@ -1016,11 +1026,10 @@ body {
 }
 
 .footer__logo {
-  line-height: 1;
-  text-align: center;
-
   img {
     width: 120px;
+    display: block;
+    margin-inline: auto;
   }
 }
 

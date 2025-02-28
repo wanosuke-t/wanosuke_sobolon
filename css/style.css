@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   font-family: "Noto Serif JP", serif;
   font-size: 16px;
@@ -105,8 +106,8 @@ body {
   display: inline-block;
   width: 158px;
   padding: 11px 0;
-  -webkit-transition: color 0.3s linear, background 0.3s linear;
-  transition: color 0.3s linear, background 0.3s linear;
+  -webkit-transition: color 0.3s linear, background-color 0.3s linear;
+  transition: color 0.3s linear, background-color 0.3s linear;
 }
 .button a:hover,
 .button input[type=submit]:hover {
@@ -259,6 +260,7 @@ body {
 @media screen and (min-width: 768px) {
   .fv {
     padding-top: 70px;
+    margin-bottom: 0;
   }
 }
 
@@ -277,7 +279,7 @@ body {
   }
 }
 .fv__image img {
-  width: 345px;
+  width: 100%;
 }
 @media screen and (min-width: 768px) {
   .fv__image img {
@@ -349,7 +351,7 @@ body {
   }
 }
 .concept__image img {
-  width: 345px;
+  width: 100%;
 }
 @media screen and (min-width: 768px) {
   .concept__image img {
@@ -426,11 +428,10 @@ body {
   -webkit-box-shadow: 3px 3px 15px 0px rgba(96, 96, 96, 0.16);
           box-shadow: 3px 3px 15px 0px rgba(96, 96, 96, 0.16);
   background: #fff;
-  max-width: 345px;
 }
 
 .feature__image img {
-  width: 100%;
+  width: 345px;
 }
 @media screen and (min-width: 768px) {
   .feature__image img {
@@ -450,7 +451,6 @@ body {
   padding-bottom: 50px;
   background: url("../img/sp/question-bg.jpg") top center/cover no-repeat;
   position: relative;
-  z-index: 1;
 }
 @media screen and (min-width: 768px) {
   .question {
@@ -469,7 +469,12 @@ body {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.12);
-  z-index: -1;
+  z-index: 1;
+}
+
+.question__inner {
+  position: relative;
+  z-index: 2;
 }
 
 .question__lead {
@@ -539,19 +544,20 @@ body {
   }
 }
 
-.products__link:hover .products__image {
+.products__link:hover .products__image img {
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
 }
 
 .products__image {
+  overflow: hidden;
+}
+.products__image img {
+  width: 100%;
   -webkit-transition: -webkit-transform 0.3s linear;
   transition: -webkit-transform 0.3s linear;
   transition: transform 0.3s linear;
   transition: transform 0.3s linear, -webkit-transform 0.3s linear;
-}
-.products__image img {
-  width: 263px;
 }
 
 .products__description {
@@ -596,7 +602,6 @@ body {
 }
 
 .news__item {
-  max-width: 345px;
   padding-bottom: 27px;
   border-bottom: 1px solid #e0e0e0;
 }
@@ -607,7 +612,7 @@ body {
   }
 }
 
-.news__link:hover .news__image {
+.news__link:hover .news__image img {
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
 }
@@ -618,20 +623,27 @@ body {
     display: flex;
     -webkit-box-align: start;
         -ms-flex-align: start;
-            align-items: start;
+            align-items: flex-start;
     gap: 40px;
   }
 }
 
 .news__image {
   text-align: center;
+  overflow: hidden;
+}
+@media screen and (min-width: 768px) {
+  .news__image {
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+  }
+}
+.news__image img {
+  width: 100%;
   -webkit-transition: -webkit-transform 0.3s linear;
   transition: -webkit-transform 0.3s linear;
   transition: transform 0.3s linear;
   transition: transform 0.3s linear, -webkit-transform 0.3s linear;
-}
-.news__image img {
-  width: 345px;
 }
 @media screen and (min-width: 768px) {
   .news__image img {
@@ -715,7 +727,7 @@ body {
   }
 }
 .motto__image img {
-  width: 345px;
+  width: 100%;
 }
 @media screen and (min-width: 768px) {
   .motto__image img {
@@ -790,9 +802,9 @@ body {
 
 .contact__description {
   margin-top: 74px;
-  text-align: center;
   font-size: 14px;
   font-weight: 600;
+  text-align: center;
 }
 @media screen and (min-width: 768px) {
   .contact__description {
@@ -810,6 +822,13 @@ body {
     margin-left: auto;
     margin-right: auto;
   }
+}
+.form input,
+.form textarea {
+  -webkit-appearance: none; /* デフォルトのスタイルをリセット */
+  -moz-appearance: none;
+       appearance: none;
+  border-radius: 0;
 }
 
 .form__fields {
@@ -903,9 +922,7 @@ body {
   padding: 6.5px;
 }
 .form__text-input:focus {
-  border: 2px solid #3ea1d1;
-  outline: none;
-  padding: 4.5px;
+  outline: 1px auto #3ea1d1;
 }
 
 .form__radios {
@@ -927,15 +944,12 @@ body {
   overflow: hidden;
 }
 .form__radio-input:focus + .form__radio-text {
-  border: 2px solid #3ea1d1;
+  outline: 1px auto #3ea1d1;
 }
 .form__radio-input:checked + .form__radio-text {
   color: #fff;
   background: #3ea1d1;
   border: 1px solid #fff;
-}
-.form__radio-input:focus:checked + .form__radio-text {
-  border: 2px solid #fff;
 }
 
 .form__radio-text {
@@ -956,10 +970,10 @@ body {
   border: 0;
   -webkit-box-shadow: 5px 6px 16px 0px rgba(96, 96, 96, 0.16);
           box-shadow: 5px 6px 16px 0px rgba(96, 96, 96, 0.16);
+  resize: vertical;
 }
 .form__textarea:focus {
-  border: 2px solid #3ea1d1;
-  outline: none;
+  outline: 1px auto #3ea1d1;
 }
 @media screen and (min-width: 768px) {
   .form__textarea {
@@ -989,7 +1003,7 @@ body {
   overflow: hidden;
 }
 .form__checkbox-input:focus + .form__checkbox-text::before {
-  border: 2px solid #3ea1d1;
+  outline: 1px auto #3ea1d1;
 }
 .form__checkbox-input:checked + .form__checkbox-text::after {
   position: absolute;
@@ -1046,12 +1060,10 @@ body {
   }
 }
 
-.footer__logo {
-  line-height: 1;
-  text-align: center;
-}
 .footer__logo img {
   width: 120px;
+  display: block;
+  margin-inline: auto;
 }
 
 .footer__list {
